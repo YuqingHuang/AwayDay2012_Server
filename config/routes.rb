@@ -3,4 +3,6 @@ AwayDay2012Rails::Application.routes.draw do
 
   post 'moment' => 'moment#create'
   delete 'moment' => 'moment#destroy'
+  
+  post 'share' => 'share#create'
 end
