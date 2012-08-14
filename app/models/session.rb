@@ -9,7 +9,7 @@ class Session < ActiveRecord::Base
       }
     end
   end
-  
+
   def to_json_session
     { session_description: description,
       session_title: title,
