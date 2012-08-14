@@ -11,9 +11,9 @@ class MomentController < ApplicationController
       }
     else
       render status: :unprocessable_entity, json: {
-        result: 'done',
+        result: 'fail',
         timestamp: timestamp,
-        errors: thing.errors
+        errors: moment.errors
       }
     end
   end
