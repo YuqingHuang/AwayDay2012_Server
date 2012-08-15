@@ -2,8 +2,8 @@ class Session < ActiveRecord::Base
   attr_accessible :date, :description, :title, :start, :end, :speaker, :location
 
   def self.grouped_by_date
-    Sessions.group('date').select('date').map do |s|
-      sessions = Sessions.where('date = ?', s.date)
+    Session.group('date').select('date').map do |s|
+      sessions = Session.where('date = ?', s.date)
       { agenda_date: s.date,
         agenda_sessions: sessions.map {|ds| ds.to_json_session }
       }
