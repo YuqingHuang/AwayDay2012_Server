@@ -20,3 +20,7 @@ To test the various entry points:
     curl -H 'Content-Type: application/json' -d '{"device_id":"test_device_id","image_content":"the_image_base64_string","text_content":"the text content","timestamp":"222222222","user_name":"xuehai"}'  http://localhost:3000/moment
 
     curl -H 'Content-Type: application/json' -d '{"device_id":"test_device_id","timestamp":"222222222"}' -X DELETE http://localhost:3000/moment
+
+# Share
+
+	curl -H 'Content-Type: application/json' -d '{"session_id":"1234567","share_image":"the base64 string of the image file","device_id":"test_device_id","share_text":"This is a user share","username":"xuehai","timestamp":"1111111111"}'  http://localhost:3000/share
