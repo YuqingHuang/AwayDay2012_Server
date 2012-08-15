@@ -15,7 +15,7 @@ class Session < ActiveRecord::Base
       session_title: title,
       session_speaker: speaker,
       session_start: start,
-      session_end: self.end,
+      session_end: end,
       session_location: location,
       session_id: id
     }
