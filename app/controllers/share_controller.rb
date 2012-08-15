@@ -7,9 +7,17 @@ class ShareController < ApplicationController
     share_text = params[:share_text]
     share_image = params[:share_image]
     logger.info "creating share #{timestamp} for session_id #{session_id}"
-    render json: {
-      timestamp: timestamp,
-      message: "Successful"
-    }
+    share = Share.new params[:share]
+    if share.save
+      render status: :created, json: {
+        timestamp: timestamp,
+        message: "Successful"
+      }
+    else
+      render status: :unprocessable_entity, json: {
+        timestamp: timestamp,
+        message: share.errors
+      }
+    end
   end
 end

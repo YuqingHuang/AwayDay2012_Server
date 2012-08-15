@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120814104639) do
+ActiveRecord::Schema.define(:version => 20120815093252) do
 
   create_table "moments", :force => true do |t|
     t.string   "device_id"
@@ -33,6 +33,17 @@ ActiveRecord::Schema.define(:version => 20120814104639) do
     t.datetime "end"
     t.string   "location"
     t.string   "speaker"
+  end
+
+  create_table "shares", :force => true do |t|
+    t.string   "session_id"
+    t.integer  "timestamp"
+    t.string   "device_id"
+    t.string   "username"
+    t.text     "share_text"
+    t.text     "share_image"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
   end
 
 end
