@@ -26,6 +26,8 @@ To create sessions:
 	session = Session.find_by_title 'introduction to clojure'
 	session.description = 'something about clojure'
 	session.save
+	
+	Session.delete_all
 
 To test the various entry points:
 
