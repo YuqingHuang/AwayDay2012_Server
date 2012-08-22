@@ -3,7 +3,7 @@ class Session < ActiveRecord::Base
 
   def self.grouped_by_date
     Session.group('date').select('date').map do |s|
-      sessions = Session.where('date = ?', s.date)
+      sessions = Session.where('date = ?', s.date).order('start')
       { agenda_date: s.date,
         agenda_sessions: sessions.map {|ds| ds.to_json_session }
       }
