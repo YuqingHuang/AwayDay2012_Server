@@ -1,4 +1,6 @@
-class ShareController < ApplicationController
+class ShareController <  ApplicationController
+  include ApplicationHelper
+  include Weibo
   def create
     session_id = params[:session_id]
     timestamp = params[:timestamp]
@@ -7,6 +9,8 @@ class ShareController < ApplicationController
     share_text = params[:share_text]
     share_image = params[:share_image]
     logger.info "creating share #{timestamp} for session_id #{session_id}"
+
+    sentToWeibo(username+" "+share_text)
     share = Share.new params[:share]
     if share.save
       render status: :created, json: {
