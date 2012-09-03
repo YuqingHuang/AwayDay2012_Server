@@ -12,14 +12,12 @@ module FileHelper
   end
 
   def getImageFile(base64String)
-    image = nil
     if base64String != nil then
-      image = File.new("temp.jpeg")
-      File.open(image, "w:ASCII-8BIT:UTF-8") do |file|
+      File.open("temp.jpeg", "w:ASCII-8BIT:UTF-8") do |file|
         file.puts Base64.decode64(base64String)
       end
     end
-    return image
+    return File.new("temp.jpeg")
 
   end
 end
