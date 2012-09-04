@@ -16,8 +16,20 @@ module FileHelper
       File.open("temp.jpeg", "w:ASCII-8BIT:UTF-8") do |file|
         file.puts Base64.decode64(base64String)
       end
+      return File.new("temp.jpeg")
     end
-    return File.new("temp.jpeg")
-
+    return nil
   end
+
+  def updateTokenFile(token,expire)
+    p "update token file..."
+    tokenFile = File.new(TokenFileName,"w+")
+    tokenFile.puts "api_key=3463139052"
+    tokenFile.puts "api_secret=28eda12f668f38aa5bad6053836eee57"
+    tokenFile.puts "redirect_uri=http://127.0.0.1:4567/callback"
+    tokenFile.puts "acces_token="+token
+    tokenFile.puts "expires_at="+expire.to_s
+    tokenFile.close
+  end
+
 end

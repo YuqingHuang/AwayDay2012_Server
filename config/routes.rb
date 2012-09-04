@@ -3,8 +3,7 @@ AwayDay2012Rails::Application.routes.draw do
 
   post 'moment' => 'moment#create'
   delete 'moment' => 'moment#destroy'
-  
   post 'share' => 'share#create'
-  
-  get 'token' => 'token#update'
+  get 'refresh_token' => 'token#refresh'
+  get '/callback' => 'token#callback'
 end
