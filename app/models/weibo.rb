@@ -10,13 +10,6 @@ module  Weibo
     WeiboOAuth2::Config.redirect_uri = getProperty("redirect_uri")
     client = WeiboOAuth2::Client.new
     token = client.get_token_from_hash({:access_token => getProperty("access_token"), :expires_at => getProperty("expires_at").to_i})
-    
-    unless token.validated?
-      p "token expired,refresh token.."
-      redirect '/refresh_token'
-      return
-    end
-
     statuses = client.statuses 
     if image == nil then
       statuses.update("#AwayDay2012#"+text)
