@@ -16,8 +16,8 @@ module FileHelper
       File.open("temp.jpeg", "w:ASCII-8BIT:UTF-8") do |file|
         file.puts Base64.decode64(base64String)
       end
+      return File.new("temp.jpeg")
     end
-    return File.new("temp.jpeg")
-
+    return nil
   end
 end
