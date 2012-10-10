@@ -1,6 +1,6 @@
 class MessagesController < ApplicationController
 
-
+  http_basic_authenticate_with :name => "twer", :password => "r0ys1ngh4m"
 
   before_filter :validate_secret, :except => :notify
 
