@@ -1,4 +1,5 @@
 AwayDay2012Rails::Application.routes.draw do
+  resources :events
   resources :messages
 
   get 'sessions_grouped_by_date' => 'sessions#grouped_by_date'
