@@ -1,8 +1,13 @@
 AwayDay2012Rails::Application.routes.draw do
-  resources :events
   resources :messages
 
+
   get 'sessions_grouped_by_date' => 'sessions#grouped_by_date'
+
+  get 'event' => 'events#show'
+  get 'event/edit' => 'events#edit'
+  put 'event' => 'events#update'
+  get 'event_info' => 'events#info'
 
   post 'moment' => 'moment#create'
   delete 'moment' => 'moment#destroy'
