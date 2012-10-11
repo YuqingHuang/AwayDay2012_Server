@@ -1,6 +1,6 @@
 class MessagesController < ApplicationController
 
-  http_basic_authenticate_with :name => "twer", :password => "r0ys1ngh4m"
+  http_basic_authenticate_with :name => "twer", :password => "r0ys1ngh4m", :except => :notify
 
   before_filter :validate_secret, :except => :notify
 
@@ -14,12 +14,12 @@ class MessagesController < ApplicationController
   end
 
   def notify
-    p params[:from]
     if params[:from]
-      render json: Message.scoped(:conditions => ["created_at >= ?", params[:from]])
+      messages = Message.scoped(:conditions => ["created_at > ?", params[:from]])
     else
-      render json: Message.all
+      messages = Message.all
     end
+    render json: messages.to_json(:only => [:content], :methods => [:created_time])
   end
 
   def show
