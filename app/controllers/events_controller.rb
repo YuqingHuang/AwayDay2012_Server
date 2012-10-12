@@ -1,6 +1,6 @@
 class EventsController < ApplicationController
 
-  http_basic_authenticate_with :name => "twer", :password => "r0ys1ngh4m", :except => "info"
+  http_basic_authenticate_with :name => "twer", :password => "r0ys1ngh4m", :except => :info
 
   def show
     @event = Event.find(1)
