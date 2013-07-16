@@ -2,6 +2,8 @@ AwayDay2012Rails::Application.routes.draw do
   resources :sessions
   resources :messages
 
+  post 'superuser' => 'superuser#authenticate'
+
   get 'sessions_grouped_by_date' => 'sessions#grouped_by_date'
 
   get 'event' => 'events#show'
